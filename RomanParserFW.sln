@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.438
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanParserFW", "RomanParserFW\RomanParserFW.csproj", "{457B1CB6-260E-4C6B-96EB-438C602EED8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{DF5D2BDC-9E43-410F-9488-D258DE627D54}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{457B1CB6-260E-4C6B-96EB-438C602EED8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{457B1CB6-260E-4C6B-96EB-438C602EED8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{457B1CB6-260E-4C6B-96EB-438C602EED8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{457B1CB6-260E-4C6B-96EB-438C602EED8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF5D2BDC-9E43-410F-9488-D258DE627D54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF5D2BDC-9E43-410F-9488-D258DE627D54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF5D2BDC-9E43-410F-9488-D258DE627D54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF5D2BDC-9E43-410F-9488-D258DE627D54}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F3D58B9A-DB89-4C9B-874F-ECF5308380E8}
+	EndGlobalSection
+EndGlobal
