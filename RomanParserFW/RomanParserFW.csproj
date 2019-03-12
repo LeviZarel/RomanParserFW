@@ -48,6 +48,7 @@
     <Compile Include="ConversionTable.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="RomanBuilder.cs" />
+    <Compile Include="RomanConfig.cs" />
     <Compile Include="RomanNumber.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

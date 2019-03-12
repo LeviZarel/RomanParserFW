@@ -91,33 +91,69 @@ namespace Test
         }
 
         [TestMethod]
-        public void SendValueFalseInToUpperCase()
+        public void SendValueFalseOfUpperCaseInRomanConfig()
         {
-            var uppeCaseValue = ConfigReader.GetValueBoolOf("upperCase", false);
-            var builder = new RomanBuilder();
+            var config = new RomanConfig();
+            config.UpperCase = false;
+            var builder = new RomanBuilder(config);
             RomanNumber result = builder.GetRomanNumber(666);
             var expectedSymbol = "dclxvi";
-            Assert.AreEqual(result.GetSymbol(uppeCaseValue), expectedSymbol);
+            Assert.AreEqual(result.Symbol, expectedSymbol);
         }
 
         [TestMethod]
-        public void SendValueTrueInToUpperCase()
+        public void SendValueTrueOfUpperCaseInRomanConfig()
         {
-            var uppeCaseValue = ConfigReader.GetValueBoolOf("upperCase", true);
-            var builder = new RomanBuilder();
+            var config = new RomanConfig();
+            config.UpperCase = true;
+            var builder = new RomanBuilder(config);
             RomanNumber result = builder.GetRomanNumber(777);
             var expectedSymbol = "DCCLXXVII";
-            Assert.AreEqual(result.GetSymbol(uppeCaseValue), expectedSymbol);
+            Assert.AreEqual(result.Symbol, expectedSymbol);
         }
 
         [TestMethod]
-        public void SendDefaultValueInToUpperCase()
+        public void SendValueTrueOfBracketInRomanConfig()
         {
-            var uppeCaseValue = ConfigReader.GetValueBoolOf("upperCase");
-            var builder = new RomanBuilder();
+            var config = new RomanConfig();
+            config.Bracket = true;
+            var builder = new RomanBuilder(config);
+            RomanNumber result = builder.GetRomanNumber(123);
+            var expectedSymbol = "[CXXIII]";
+            Assert.AreEqual(result.Symbol, expectedSymbol);
+        }
+
+        [TestMethod]
+        public void SendValueFalseOfBracketInRomanConfig()
+        {
+            var config = new RomanConfig();
+            config.Bracket = false;
+            var builder = new RomanBuilder(config);
             RomanNumber result = builder.GetRomanNumber(123);
             var expectedSymbol = "CXXIII";
-            Assert.AreEqual(result.GetSymbol(uppeCaseValue), expectedSymbol);
+            Assert.AreEqual(result.Symbol, expectedSymbol);
+        }
+
+        [TestMethod]
+        public void SendValueTrueOnBracketAndValueFalseOfUpperCaseInRomanConfig()
+        {
+            var config = new RomanConfig();
+            config.Bracket = true;
+            config.UpperCase = false;
+            var builder = new RomanBuilder(config);
+            RomanNumber result = builder.GetRomanNumber(123);
+            var expectedSymbol = "[cxxiii]";
+            Assert.AreEqual(result.Symbol, expectedSymbol);
+        }
+
+        [TestMethod]
+        public void SendeDefaultValuesInRomanConfig()
+        {
+            var config = new RomanConfig();
+            var builder = new RomanBuilder(config);
+            RomanNumber result = builder.GetRomanNumber(444);
+            var expectedSymbol = "CDXLIV";
+            Assert.AreEqual(result.Symbol, expectedSymbol);
         }
     }
 }
