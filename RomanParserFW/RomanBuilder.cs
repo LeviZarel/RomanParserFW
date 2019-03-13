@@ -64,9 +64,9 @@ namespace RomanParserFW
             {
                 symbol = symbol.ToLower();
             }
-            if (MyConfig.Bracket)
+            if (MyConfig.ExtraCharacters)
             {
-                symbol = $"[{symbol}]";
+                symbol = $"{MyConfig.CharacterOpen}{symbol}{MyConfig.CharacterClose}";
             }
             return new RomanNumber(number, symbol);
         }

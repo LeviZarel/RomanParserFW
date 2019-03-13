@@ -8,13 +8,10 @@ namespace RomanParserFW
 {
     public class RomanConfig
     {
-        public bool UpperCase { get; set; }
-        public bool Bracket { get; set; }
-        
-        public RomanConfig()
-        {
-            UpperCase = true;
-            Bracket = false;
-        }
+        public bool UpperCase { get; set; } = true;
+        public bool ExtraCharacters { get; set; } = false;
+        public string CharacterOpen { get; set; } = "[";
+        public string CharacterClose { get; set; } = "]";
+
     }
 }

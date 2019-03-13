@@ -12,7 +12,7 @@ namespace Test
     public class UnitTestRomanBuilder
     {
         [TestMethod]
-        public void OneDigit()
+        public void One_Digit()
         {
             var builder = new RomanBuilder();
             RomanNumber result = builder.GetRomanNumber(9);
@@ -21,7 +21,7 @@ namespace Test
         }
 
         [TestMethod]
-        public void TwoDigits()
+        public void Two_Digits()
         {
             var builder = new RomanBuilder();
             RomanNumber result = builder.GetRomanNumber(98);
@@ -30,7 +30,7 @@ namespace Test
         }
 
         [TestMethod]
-        public void ThreeDigits()
+        public void Three_Digits()
         {
             var builder = new RomanBuilder();
             RomanNumber result = builder.GetRomanNumber(176);
@@ -39,7 +39,7 @@ namespace Test
         }
 
         [TestMethod]
-        public void FourDigits()
+        public void Four_Digits()
         {
             var builder = new RomanBuilder();
             RomanNumber result = builder.GetRomanNumber(2194);
@@ -48,7 +48,7 @@ namespace Test
         }
 
         [TestMethod]
-        public void BorderMin()
+        public void Border_Min()
         {
             var builder = new RomanBuilder();
             RomanNumber result = builder.GetRomanNumber(1);
@@ -57,7 +57,7 @@ namespace Test
         }
 
         [TestMethod]
-        public void BorderMax()
+        public void Border_Max()
         {
             var builder = new RomanBuilder();
             RomanNumber result = builder.GetRomanNumber(3999);
@@ -66,7 +66,7 @@ namespace Test
         }
 
         [TestMethod]
-        public void ValueZero()
+        public void Value_Zero()
         {
             var builder = new RomanBuilder();
             RomanNumber result = builder.GetRomanNumber(0);
@@ -76,7 +76,7 @@ namespace Test
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void OutOfRangeMin()
+        public void Out_Of_Range_Min()
         {
             var builder = new RomanBuilder();
             RomanNumber result = builder.GetRomanNumber(-1);
@@ -84,14 +84,14 @@ namespace Test
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void OutOfRangeMax()
+        public void Out_Of_Range_Max()
         {
             var builder = new RomanBuilder();
             RomanNumber result = builder.GetRomanNumber(4000);
         }
 
         [TestMethod]
-        public void SendValueFalseOfUpperCaseInRomanConfig()
+        public void Send_Value_False_Of_UpperCase_In_RomanConfig()
         {
             var config = new RomanConfig();
             config.UpperCase = false;
@@ -102,7 +102,7 @@ namespace Test
         }
 
         [TestMethod]
-        public void SendValueTrueOfUpperCaseInRomanConfig()
+        public void Send_Value_True_Of_UpperCase_In_RomanConfig()
         {
             var config = new RomanConfig();
             config.UpperCase = true;
@@ -113,10 +113,10 @@ namespace Test
         }
 
         [TestMethod]
-        public void SendValueTrueOfBracketInRomanConfig()
+        public void Send_Value_True_Of_ExtraCharacters_In_RomanConfig()
         {
             var config = new RomanConfig();
-            config.Bracket = true;
+            config.ExtraCharacters = true;
             var builder = new RomanBuilder(config);
             RomanNumber result = builder.GetRomanNumber(123);
             var expectedSymbol = "[CXXIII]";
@@ -124,10 +124,10 @@ namespace Test
         }
 
         [TestMethod]
-        public void SendValueFalseOfBracketInRomanConfig()
+        public void Send_Value_False_Of_ExtraCharacters_In_RomanConfig()
         {
             var config = new RomanConfig();
-            config.Bracket = false;
+            config.ExtraCharacters = false;
             var builder = new RomanBuilder(config);
             RomanNumber result = builder.GetRomanNumber(123);
             var expectedSymbol = "CXXIII";
@@ -135,10 +135,10 @@ namespace Test
         }
 
         [TestMethod]
-        public void SendValueTrueOnBracketAndValueFalseOfUpperCaseInRomanConfig()
+        public void Send_Value_True_On_ExtraCharacters_And_Value_False_Of_UpperCase_In_RomanConfig()
         {
             var config = new RomanConfig();
-            config.Bracket = true;
+            config.ExtraCharacters = true;
             config.UpperCase = false;
             var builder = new RomanBuilder(config);
             RomanNumber result = builder.GetRomanNumber(123);
@@ -147,12 +147,26 @@ namespace Test
         }
 
         [TestMethod]
-        public void SendeDefaultValuesInRomanConfig()
+        public void Sende_Default_Values_In_RomanConfig()
         {
             var config = new RomanConfig();
             var builder = new RomanBuilder(config);
             RomanNumber result = builder.GetRomanNumber(444);
             var expectedSymbol = "CDXLIV";
+            Assert.AreEqual(result.Symbol, expectedSymbol);
+        }
+
+        [TestMethod]
+        public void Send_True_ExtraCharacters_And_UperCase_False_And_Open_An_Close_Of_Character_In_RomanConfig()
+        {
+            var config = new RomanConfig();
+            config.ExtraCharacters = true;
+            config.UpperCase = false;
+            config.CharacterOpen = "{";
+            config.CharacterClose = "}";
+            var builder = new RomanBuilder(config);
+            RomanNumber result = builder.GetRomanNumber(123);
+            var expectedSymbol = "{cxxiii}";
             Assert.AreEqual(result.Symbol, expectedSymbol);
         }
     }

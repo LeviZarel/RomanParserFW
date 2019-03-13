@@ -14,7 +14,9 @@ namespace RomanParserFW
         {
             RomanConfig config = new RomanConfig();
             config.UpperCase = ConfigReader.GetValueBoolOf("upperCase");
-            config.Bracket = ConfigReader.GetValueBoolOf("bracket"); 
+            config.ExtraCharacters = ConfigReader.GetValueBoolOf("extraCharacters");
+            config.CharacterOpen = ConfigReader.GetValueStringOf("characterOpen");
+            config.CharacterClose = ConfigReader.GetValueStringOf("characterClose");
             RomanBuilder builder = new RomanBuilder(config);
             for (int i = 0; i < 10; i++)
             {
